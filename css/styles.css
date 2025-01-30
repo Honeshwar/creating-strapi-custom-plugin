@@ -1,0 +1,49 @@
+header {
+    z-index: 1022 !important;
+}
+
+header li .nav-link {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #fcfcfd;
+}
+
+header li a.nav-link:hover {
+    border-bottom: 2px solid #777;
+}
+
+#chart {
+    margin-left: -16px;
+}
+
+#embed-modal .input-group-text {
+    min-width: 70px;
+}
+
+/* Fix Google styles */
+.modal-dialog.google-visualization-charteditor-dialog {
+    z-index: 1050 !important;
+    /* Bootstrap's modal z-index might be around 1040 */
+    position: fixed !important;
+    /* Ensure it's positioned relative to the viewport */
+    width: auto;
+    height: auto;
+    margin: 0;
+    pointer-events: auto !important;
+}
+
+.modal-dialog.google-visualization-charteditor-dialog * {
+    box-sizing: initial;
+}
+
+#google-visualization-charteditor-input-chart-name {
+    display: none;
+}
+
+/* Fix Bootstrap styles after Google */
+#embed-modal .modal-dialog {
+    padding: 0;
+    background: transparent;
+    position: relative;
+    border: 0;
+}
