@@ -18,19 +18,18 @@
     <!-- <link rel="canonical" href="" /> -->
 
     <!-- CSS only -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/handsontable/dist/handsontable.full.min.css" />
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/handsontable.full.min.css" />
 
     <link rel="stylesheet" href="css/styles.css" />
 
-    <script src="https://cdn.jsdelivr.net/npm/handsontable/dist/handsontable.full.min.js"></script>
+    <script src="./js/handsontable.full.min.js"></script>
 
     <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/jquery.min.js"></script>
 
-    <!-- Clipboard -->
-    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script>
+
 
     <!-- Load main scripts -->
     <script src="js/env.js"></script>
@@ -38,53 +37,9 @@
     <script src="js/chart.js"></script>
 
     <!-- Load the AJAX API -->
-    <script src="https://www.gstatic.com/charts/loader.js"></script>
-    <script>
-        // Load the Visualization API and the chart package.
-        google.charts.load('current', { packages: ['table', 'corechart', 'charteditor'] })
-    </script>
+    <script src="./js/loader.js"></script>
 
-    <script>
-        $(function () {
-            // This service is totally free for usage
-            table.settings.licenseKey = 'non-commercial-and-evaluation'
-
-            // Handlers for buttons
-            $('#chart-editor').click(chart.edit)
-            $('#chart-editor-link').click(chart.edit)
-            $('#chart-generate').click(chart.embed)
-            $('#dynamic').click(chart.url)
-            $('#edit').click(chart.url)
-
-            $('#clear').click(table.clear)
-
-            google.charts.setOnLoadCallback(() => {
-                // Initialization of the Chart Wrapper
-                chart.init()
-
-                let data = getHashValue('d')
-                if (data) {
-                    chart.load(data)
-                    table.load(data)
-                    table.init()
-                } else {
-                    table.setData(env.data)
-                    table.init()
-                    chart.redraw()
-                }
-            })
-        })
-
-        function getHashValue(key) {
-            try {
-                data = location.hash.match(new RegExp(key + '=([^&]*)'))[1]
-                return JSON.parse(decodeURI(data))
-            } catch (e) {
-                // not found key
-                return false
-            }
-        }
-    </script>
+    <script src="./js/default.js"></script>
 
 
 </head>
@@ -262,22 +217,7 @@
         </div>
     </div>
     <!-- /modal -->
-    <script>
-        document.getElementById("copy-btn").addEventListener("click", function () {
-            // Select the text inside the div
-            const text = document.getElementById("generated-script").innerText;
-
-            // Copy text to clipboard
-            navigator.clipboard.writeText(text).then(() => {
-                alert("Text copied to clipboard!");
-            }).catch(err => {
-                console.error("Failed to copy text: ", err);
-            });
-        });
-        // new bootstrap.Modal(
-        //     document.getElementById('embed-modal')
-        // ).show()
-    </script>
+    <script src="./js/clipboard.js"></script>
 
 </body>
 
